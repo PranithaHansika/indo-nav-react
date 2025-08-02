@@ -8,6 +8,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/pathfinder" element={<PathFinder />} />
+        <Route path="*" element={<Home />} />
       </Routes>
     </Router>
   );
