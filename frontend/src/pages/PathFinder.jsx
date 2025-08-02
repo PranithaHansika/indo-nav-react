@@ -1,4 +1,3 @@
-// PathFinder.jsx
 import { useState, useRef, useEffect } from "react";
 import axios from "axios";
 
@@ -39,43 +38,75 @@ function PathFinder() {
   }, [currentIndex]);
 
   return (
-    <div className="container">
-      <header>
-        <h1>CMRIT Floor Navigation System</h1>
+    <div className="min-h-screen bg-gray-100 p-8">
+      <header className="mb-8 text-center">
+        <h1 className="text-4xl font-bold text-gray-800">CMRIT Floor Navigation System</h1>
       </header>
 
-      <div className="left-section">
-        <h2>Path Finder</h2>
-        <form id="searchForm" onSubmit={handleSubmit}>
-          <label htmlFor="source"><b>Source:</b></label><br />
-          <input type="text" id="source" name="source" value={source} onChange={(e) => setSource(e.target.value)} /><br />
-          <label htmlFor="destination"><b>Destination:</b></label><br />
-          <input type="text" id="destination" name="destination" value={destination} onChange={(e) => setDestination(e.target.value)} /><br /><br />
-          <button type="submit">Search</button>
-        </form>
-      </div>
-
-      <div className="path-container">
-        <h3>Path from Source to Destination:</h3>
-        <ul id="pathList">
-          {error && <li>{error}</li>}
-          {pathData && (
-            <>
-              <li>Path: {pathData.path.join(" --> ")}</li>
-              <li>Distance: {pathData.distance} meters</li>
-            </>
-          )}
-        </ul>
-      </div>
-
-      <div className="image-container">
-        <div className="slider" ref={sliderRef}>
-          <img src="/images/floor.png" alt="Map Image 1" />
-          <img src="/images/floor1.jpg" alt="Map Image 2" />
-          <img src="/images/floor3.jpg" alt="Map Image 3" />
+      <div className="grid md:grid-cols-2 gap-8">
+        <div className="bg-white p-6 rounded shadow">
+          <h2 className="text-2xl font-semibold mb-4 text-blue-700">Path Finder</h2>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div>
+              <label htmlFor="source" className="block font-semibold mb-1">Source:</label>
+              <input
+                type="text"
+                id="source"
+                name="source"
+                className="w-full border border-gray-300 rounded px-4 py-2"
+                value={source}
+                onChange={(e) => setSource(e.target.value)}
+              />
+            </div>
+            <div>
+              <label htmlFor="destination" className="block font-semibold mb-1">Destination:</label>
+              <input
+                type="text"
+                id="destination"
+                name="destination"
+                className="w-full border border-gray-300 rounded px-4 py-2"
+                value={destination}
+                onChange={(e) => setDestination(e.target.value)}
+              />
+            </div>
+            <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+              Search
+            </button>
+          </form>
         </div>
-        <button className="prev" onClick={() => setCurrentIndex(currentIndex - 1)}>&laquo;</button>
-        <button className="next" onClick={() => setCurrentIndex(currentIndex + 1)}>&raquo;</button>
+
+        <div className="bg-white p-6 rounded shadow">
+          <h3 className="text-lg font-semibold mb-2">Path from Source to Destination:</h3>
+          <ul className="list-disc pl-5 text-gray-700">
+            {error && <li className="text-red-600">{error}</li>}
+            {pathData && (
+              <>
+                <li>Path: {pathData.path.join(" --> ")}</li>
+                <li>Distance: {pathData.distance} meters</li>
+              </>
+            )}
+          </ul>
+        </div>
+      </div>
+
+      <div className="mt-10 relative overflow-hidden w-full max-w-4xl mx-auto">
+        <div ref={sliderRef} className="flex transition-transform duration-300 ease-in-out">
+          <img src="/images/floor.png" alt="Map 1" className="w-full h-96 object-contain" />
+          <img src="/images/floor1.jpg" alt="Map 2" className="w-full h-96 object-contain" />
+          <img src="/images/floor3.jpg" alt="Map 3" className="w-full h-96 object-contain" />
+        </div>
+        <button
+          className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-blue-600 text-white px-3 py-2 rounded-full shadow hover:bg-blue-700"
+          onClick={() => setCurrentIndex(currentIndex - 1)}
+        >
+          &laquo;
+        </button>
+        <button
+          className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-blue-600 text-white px-3 py-2 rounded-full shadow hover:bg-blue-700"
+          onClick={() => setCurrentIndex(currentIndex + 1)}
+        >
+          &raquo;
+        </button>
       </div>
     </div>
   );
