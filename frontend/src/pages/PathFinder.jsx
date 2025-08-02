@@ -30,12 +30,16 @@ function PathFinder() {
   return (
     <div className="min-h-screen bg-gray-100 p-8">
       <header className="mb-8 text-center">
-        <h1 className="text-4xl font-bold text-gray-800">CMRIT Floor Navigation System</h1>
+        <h1 className="text-4xl font-bold text-gray-800">
+          CMRIT Floor Navigation System
+        </h1>
       </header>
 
       <div className="grid md:grid-cols-2 gap-8">
         <div className="bg-white p-6 rounded shadow">
-          <h2 className="text-2xl font-semibold mb-4 text-blue-700">Path Finder</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-blue-700">
+            Path Finder
+          </h2>
           <SearchForm
             source={source}
             destination={destination}
@@ -47,7 +51,10 @@ function PathFinder() {
         <PathDisplay error={error} pathData={pathData} />
       </div>
 
-      <ImageSlider currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />
+      <ImageSlider
+        currentIndex={currentIndex}
+        setCurrentIndex={setCurrentIndex}
+      />
     </div>
   );
 }

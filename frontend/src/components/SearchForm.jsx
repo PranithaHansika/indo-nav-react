@@ -1,8 +1,16 @@
-function SearchForm({ source, destination, setSource, setDestination, handleSubmit }) {
+function SearchForm({
+  source,
+  destination,
+  setSource,
+  setDestination,
+  handleSubmit,
+}) {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label htmlFor="source" className="block font-semibold mb-1">Source:</label>
+        <label htmlFor="source" className="block font-semibold mb-1">
+          Source:
+        </label>
         <input
           type="text"
           id="source"
@@ -13,7 +21,9 @@ function SearchForm({ source, destination, setSource, setDestination, handleSubm
         />
       </div>
       <div>
-        <label htmlFor="destination" className="block font-semibold mb-1">Destination:</label>
+        <label htmlFor="destination" className="block font-semibold mb-1">
+          Destination:
+        </label>
         <input
           type="text"
           id="destination"
@@ -23,7 +33,10 @@ function SearchForm({ source, destination, setSource, setDestination, handleSubm
           onChange={(e) => setDestination(e.target.value)}
         />
       </div>
-      <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+      <button
+        type="submit"
+        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+      >
         Search
       </button>
     </form>

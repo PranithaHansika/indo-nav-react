@@ -5,7 +5,9 @@ function Home() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100 p-6">
-      <h1 className="text-4xl font-bold text-blue-800 mb-8">IndoNav Home Page</h1>
+      <h1 className="text-4xl font-bold text-blue-800 mb-8">
+        IndoNav Home Page
+      </h1>
       <div className="space-y-4">
         <button
           onClick={() => navigate("/floor1")}
