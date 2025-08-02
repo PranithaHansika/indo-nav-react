@@ -7,8 +7,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/pathfinder" element={<PathFinder />} />
-        <Route path="*" element={<Home />} />
+        <Route path="/pathfinder/:floor" element={<PathFinder />} />
       </Routes>
     </Router>
   );

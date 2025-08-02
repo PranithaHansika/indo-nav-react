@@ -10,20 +10,20 @@ function Home() {
       </h1>
       <div className="space-y-4">
         <button
-          onClick={() => navigate("/floor1")}
+          onClick={() => navigate("/pathfinder/floor1")}
           className="px-6 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition"
         >
           Floor 1
         </button>
         <button
-          disabled
-          className="px-6 py-2 bg-gray-400 text-white rounded-lg cursor-not-allowed"
+          onClick={() => navigate("/pathfinder/floor2")}
+          className="px-6 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition"
         >
           Floor 2
         </button>
         <button
-          disabled
-          className="px-6 py-2 bg-gray-400 text-white rounded-lg cursor-not-allowed"
+          onClick={() => navigate("/pathfinder/floor3")}
+          className="px-6 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition"
         >
           Floor 3
         </button>

@@ -1,15 +1,15 @@
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import SearchForm from "../components/SearchForm";
 import PathDisplay from "../components/PathDisplay";
-import ImageSlider from "../components/ImageSlider";
 
 function PathFinder() {
+  const { floor } = useParams();
   const [source, setSource] = useState("");
   const [destination, setDestination] = useState("");
   const [pathData, setPathData] = useState(null);
   const [error, setError] = useState(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,11 +27,14 @@ function PathFinder() {
     }
   };
 
+  const floorNumber = floor?.replace("floor", "") || "1";
+  const floorImage = `/images/floor${floorNumber}.jpg`;
+
   return (
     <div className="min-h-screen bg-gray-100 p-8">
       <header className="mb-8 text-center">
         <h1 className="text-4xl font-bold text-gray-800">
-          CMRIT Floor Navigation System
+          CMRIT Floor {floorNumber} Navigation
         </h1>
       </header>
 
@@ -51,10 +54,13 @@ function PathFinder() {
         <PathDisplay error={error} pathData={pathData} />
       </div>
 
-      <ImageSlider
-        currentIndex={currentIndex}
-        setCurrentIndex={setCurrentIndex}
-      />
+      <div className="mt-10 w-full max-w-4xl mx-auto">
+        <img
+          src={floorImage}
+          alt={`Floor ${floorNumber} Map`}
+          className="w-full h-auto object-contain rounded-lg shadow"
+        />
+      </div>
     </div>
   );
 }
