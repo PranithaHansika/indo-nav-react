@@ -4,30 +4,39 @@ function Home() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100 p-6">
-      <h1 className="text-4xl font-bold text-blue-800 mb-8">
-        IndoNav Home Page
-      </h1>
-      <div className="space-y-4">
-        <button
-          onClick={() => navigate("/pathfinder/floor1")}
-          className="px-6 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition"
-        >
-          Floor 1
-        </button>
-        <button
-          onClick={() => navigate("/pathfinder/floor2")}
-          className="px-6 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition"
-        >
-          Floor 2
-        </button>
-        <button
-          onClick={() => navigate("/pathfinder/floor3")}
-          className="px-6 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition"
-        >
-          Floor 3
-        </button>
-      </div>
+    <div className="flex flex-col min-h-screen bg-gradient-to-br from-blue-100 to-blue-200">
+      {/* Main content */}
+      <main className="flex-grow flex flex-col items-center justify-center text-center px-4">
+        <h1 className="text-5xl font-extrabold text-blue-800 mb-8 drop-shadow-md">
+          IndoNav Home Page
+        </h1>
+
+        <div className="flex space-x-4">
+          <button
+            onClick={() => navigate("/pathfinder/floor1")}
+            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg shadow-md transition"
+          >
+            Floor 1
+          </button>
+          <button
+            onClick={() => navigate("/pathfinder/floor2")}
+            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg shadow-md transition"
+          >
+            Floor 2
+          </button>
+          <button
+            onClick={() => navigate("/pathfinder/floor3")}
+            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg shadow-md transition"
+          >
+            Floor 3
+          </button>
+        </div>
+      </main>
+
+      {/* Footer */}
+      <footer className="text-center py-4 bg-white shadow-inner text-sm text-gray-600">
+        © {new Date().getFullYear()} IndoNav — All rights reserved.
+      </footer>
     </div>
   );
 }

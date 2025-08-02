@@ -18,6 +18,7 @@ function SearchForm({
           className="w-full border border-gray-300 rounded px-4 py-2"
           value={source}
           onChange={(e) => setSource(e.target.value)}
+          required
         />
       </div>
       <div>
@@ -31,6 +32,7 @@ function SearchForm({
           className="w-full border border-gray-300 rounded px-4 py-2"
           value={destination}
           onChange={(e) => setDestination(e.target.value)}
+          required
         />
       </div>
       <button
