@@ -14,7 +14,10 @@ function PathFinder() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/get_path", { source, destination });
+      const response = await axios.post("http://localhost:5000/get_path", {
+        source,
+        destination,
+      });
 
       setPathData(response.data);
       setError(null);

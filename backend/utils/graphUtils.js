@@ -4,7 +4,7 @@ import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const graphPath = path.join(__dirname, "../data/graph.json");
+const graphPath = path.join(__dirname, "../data/graph_full.json");
 
 const graphData = JSON.parse(fs.readFileSync(graphPath, "utf8"));
 
